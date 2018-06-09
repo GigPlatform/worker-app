@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController } from 'ionic-angular';
 
 import { Item } from '../../models/item';
+import { Persona } from '../../models/persona';
+import { Personas } from '../../providers';
 import { Items } from '../../providers';
 
 @IonicPage()
@@ -11,9 +13,11 @@ import { Items } from '../../providers';
 })
 export class ListMasterPage {
   currentItems: Item[];
+  currentPersonas: Persona[];
 
-  constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public items: Items, public personas: Personas, public modalCtrl: ModalController) {
     this.currentItems = this.items.query();
+    this.currentPersonas = this.personas.query();
   }
 
   /**
@@ -50,5 +54,13 @@ export class ListMasterPage {
     this.navCtrl.push('ItemDetailPage', {
       item: item
     });
+  }
+
+  openPersona(){
+    this.navCtrl.push('WorkPage');
+    }
+
+  OpenHistory(){
+    this.navCtrl.push('ContentPage');
   }
 }

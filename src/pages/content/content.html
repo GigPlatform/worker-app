@@ -1,3 +1,19 @@
+<ion-header> 
+
+<ion-navbar text-center color="dark">
+
+  <ion-buttons start>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-buttons>
+
+  <ion-title> History </ion-title>
+</ion-navbar>
+
+</ion-header>
+
+<!--
 <ion-header>
   <ion-navbar>
     <ion-title>
@@ -5,9 +21,37 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
+-->
 
 <ion-content padding>
-  <p>
-    This is a perfect starting point for a page with primarily text content. The body is padded nicely and ready for prose.
-  </p>
+  <div padding>
+  <ion-segment [(ngModel)]="pet">
+    <ion-segment-button value="Active">
+      Active
+    </ion-segment-button>
+    <ion-segment-button value="Pending">
+      Pending
+    </ion-segment-button>
+    <ion-segment-button value="Completed">
+      Completed
+    </ion-segment-button>
+    <ion-segment-button value="Canceled">
+      Canceled
+    </ion-segment-button>
+  </ion-segment>
+</div>
+
+<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+
+  <ion-item *ngFor="let persona of currentPersonas">
+       <button ion-item (click)="openPersona(persona)">
+        <ion-thumbnail item-start>
+          <img [src]="persona.profilePic" />
+        </ion-thumbnail>
+        <h2>{{persona.name}}</h2>
+        <h3>Description</h3>
+        <p>{{persona.about}}</p>
+        <ion-note item-end *ngIf="persona.note">{{persona.note}}</ion-note>
+      </button>
+    </ion-item>
 </ion-content>

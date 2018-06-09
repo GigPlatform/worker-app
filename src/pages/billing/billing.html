@@ -1,0 +1,109 @@
+<ion-header> 
+
+<ion-navbar text-center color="dark">
+
+  <ion-buttons start>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-buttons>
+
+  <ion-title> How was your experience? </ion-title>
+</ion-navbar>
+
+</ion-header>
+
+<ion-content>
+ <div class="persona-profile" text-center #profilePic [style.background-image]="'url(' + persona.profilePic + ')'">
+  </div>
+
+  <div class="persona-detail" padding-vertical>
+    <h2>{{persona.name}}</h2>
+    <h3>{{persona.about}}</h3>
+    <!-- <p>{{persona.info}}</p> -->
+  </div>
+ 
+  <div class="persona-description" padding-vertical>
+    <h2>{{persona.name}}</h2>
+    <h3>{{persona.description}}</h3>
+    <p>{{persona.skills}}</p>
+  </div>
+ 
+  <div class="persona-money" padding-vertical>
+    <h2>{{persona.money}}</h2>
+  </div>
+
+  <div class="center">
+  <button ion-button round padding>Payment method</button>
+</div>
+
+<ion-list radio-group [(ngModel)]="MarketRating">
+	<ion-list-header>
+    Market rating
+  </ion-list-header>
+  <ion-item>
+    <ion-label>5</ion-label>
+    <ion-radio value="5" [disabled]="isDisabled"></ion-radio>
+  </ion-item>
+  <ion-item>
+    <ion-label>4</ion-label>
+    <ion-radio value="4" [disabled]="isDisabled"></ion-radio>
+  </ion-item>
+  <ion-item>
+    <ion-label>3</ion-label>
+    <ion-radio value="3" [disabled]="isDisabled"></ion-radio>
+  </ion-item>
+  <ion-item>
+    <ion-label>2</ion-label>
+    <ion-radio value="2" [disabled]="isDisabled"></ion-radio>
+  </ion-item>
+  <ion-item>
+    <ion-label>1</ion-label>
+    <ion-radio value="1" [disabled]="isDisabled"></ion-radio>
+  </ion-item>
+</ion-list>
+
+<ion-list radio-group [(ngModel)]="RequesterRating">
+	<ion-list-header>
+    Rquester rating
+  </ion-list-header>
+  <ion-item>
+    <ion-label>5</ion-label>
+    <ion-radio value="5" [disabled]="isDisabled"></ion-radio>
+  </ion-item>
+  <ion-item>
+    <ion-label>4</ion-label>
+    <ion-radio value="4" [disabled]="isDisabled"></ion-radio>
+  </ion-item>
+  <ion-item>
+    <ion-label>3</ion-label>
+    <ion-radio value="3" [disabled]="isDisabled"></ion-radio>
+  </ion-item>
+  <ion-item>
+    <ion-label>2</ion-label>
+    <ion-radio value="2" [disabled]="isDisabled"></ion-radio>
+  </ion-item>
+  <ion-item>
+    <ion-label>1</ion-label>
+    <ion-radio value="1" [disabled]="isDisabled"></ion-radio>
+  </ion-item>
+</ion-list>
+
+<ion-list>
+  <ion-item>
+    <ion-label floating>Comments about the market</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Comments about the requester</ion-label>
+    <ion-input type="password"></ion-input>
+  </ion-item>
+</ion-list>
+
+<div class="center">
+  <button ion-button block start (click)="OpenHistory()">Submit</button>
+  <button ion-button block end (click)="OpenHistory()">Cancel</button>
+</div>
+
+</ion-content>

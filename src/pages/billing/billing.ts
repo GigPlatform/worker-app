@@ -5,27 +5,20 @@ import { Persona } from '../../models/persona';
 
 @IonicPage()
 @Component({
-  selector: 'page-cards',
-  templateUrl: 'cards.html'
+  selector: 'page-billing',
+  templateUrl: 'billing.html',
 })
-export class CardsPage {
-  persona: any;
+export class BillingPage {
+persona: any;
   currentPersonas: Persona[];
 
   constructor(public navCtrl: NavController, navParams: NavParams, public personas: Personas) {
-    this.persona = navParams.get('persona') || personas.defaultPersona;
-    this.currentPersonas = this.personas.query();
-    }
+  this.persona = navParams.get('persona') || personas.defaultPersona;
+  this.currentPersonas = this.personas.query();
+  }
 
-    openPersona(){
-      this.navCtrl.push('WorkPage');
-    }
-
-    OpenBilling(){
-      this.navCtrl.push('BillingPage');
-    }
-
-    OpenHistory(){
+  OpenHistory(){
       this.navCtrl.push('ContentPage');
     }
-  }
+
+}

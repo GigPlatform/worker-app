@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, ModalController, NavController } from 'ionic-angular';
+import { Persona } from '../../models/persona';
+import { Personas } from '../../providers';
 
 @IonicPage()
 @Component({
@@ -7,7 +9,13 @@ import { IonicPage, NavController } from 'ionic-angular';
   templateUrl: 'content.html'
 })
 export class ContentPage {
+	currentPersonas: Persona[];
 
-  constructor(public navCtrl: NavController) { }
+  constructor(public navCtrl: NavController, public personas: Personas, public modalCtrl: ModalController) {
+    this.currentPersonas = this.personas.query();
+  }
 
+openPersona(){
+  this.navCtrl.push('WorkPage');
+  }
 }

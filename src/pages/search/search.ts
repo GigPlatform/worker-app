@@ -1,41 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { Item } from '../../models/item';
-import { Items } from '../../providers';
 
 @IonicPage()
 @Component({
   selector: 'page-search',
-  templateUrl: 'search.html'
+  templateUrl: 'search.html',
 })
 export class SearchPage {
 
-  currentItems: any = [];
+	@ViewChild('map') mapElement;
+	map: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public items: Items) { }
-
-  /**
-   * Perform a service for the proper items.
-   */
-  getItems(ev) {
-    let val = ev.target.value;
-    if (!val || !val.trim()) {
-      this.currentItems = [];
-      return;
-    }
-    this.currentItems = this.items.query({
-      name: val
-    });
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  /**
-   * Navigate to the detail page for this item.
-   */
-  openItem(item: Item) {
-    this.navCtrl.push('ItemDetailPage', {
-      item: item
-    });
+  ionViewDidLoad(){
+  	this.initMap();
+  }
+
+  initMap(){
+  	let latLng = new google.maps.LatLng(19.3518816, -99.1715772);
+
+  	let mapOptions = {
+  		center: latLng,
+  		zoom: 15,
+  		mapTypeId: google.maps.MapTypeId.ROADMAP
+  	};
+
+  	this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
   }
 
 }

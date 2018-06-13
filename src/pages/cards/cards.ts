@@ -17,9 +17,11 @@ export class CardsPage {
     this.currentPersonas = this.personas.query();
     }
 
-    openPersona(){
-      this.navCtrl.push('WorkPage');
-    }
+    openPersona(persona: Persona) {
+    this.navCtrl.push('WorkPage', {
+      persona: persona
+    });
+  }
 
     OpenBilling(){
       this.navCtrl.push('BillingPage');

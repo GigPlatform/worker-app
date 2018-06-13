@@ -1,19 +1,66 @@
-<!--
-  Generated template for the SearchPage page.
+<ion-header> 
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
+<ion-navbar text-center color="dark">
 
-  <ion-navbar>
-    <ion-title>search</ion-title>
-  </ion-navbar>
+  <ion-buttons start>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-buttons>
+
+  <ion-title center>Search</ion-title>
+</ion-navbar>
 
 </ion-header>
 
-
 <ion-content>
+
+	<ion-list>
+	<ion-list-header>Location:</ion-list-header>
+	<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+	</ion-list>
+
+	<ion-list>
+	<ion-list-header>Market description:</ion-list-header>
+	<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+	</ion-list>
+
+	<div padding>
+	<ion-list-header>Filter by:</ion-list-header>
+  <ion-segment [(ngModel)]="filter">
+    <ion-segment-button value="Date">
+      Date
+    </ion-segment-button>
+    <ion-segment-button value="Wage">
+      Wage
+    </ion-segment-button>
+    <ion-segment-button value="MArket type">
+      Market type
+    </ion-segment-button>
+  </ion-segment>
+</div>
+
 	<div #map id="map"></div>
+
+	<div padding-vertical>
+    <ion-list-header>Jobs</ion-list-header>
+     <ion-item-sliding *ngFor="let persona of currentPersonas">
+       <button ion-item (click)="openPersona(persona)">
+        <ion-thumbnail item-start>
+          <img [src]="persona.profilePic" />
+        </ion-thumbnail>
+        <h2>{{persona.name}}</h2>
+        <h3>{{persona.about}}</h3>
+        <ion-note item-end *ngIf="persona.note">{{persona.note}}</ion-note>
+      </button>
+    
+    <ion-item-options>
+        <button ion-button color="danger" (click)="deleteItem(item)">
+          Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+    <button ion-button full (click)="OpenHistory()">See more</button>
+    </div>
 
 </ion-content>

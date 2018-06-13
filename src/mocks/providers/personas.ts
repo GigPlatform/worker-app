@@ -29,7 +29,7 @@ export class Personas {
       },
       {
         "name": "Market 2",
-        "profilePic": "assets/img/market_logo.png",
+        "profilePic": "assets/img/market_logo_2.png",
         "about": "Subtitle",
         "info": "Money offered",
         "description": "Description",
@@ -38,7 +38,7 @@ export class Personas {
       },
       {
         "name": "Market 3",
-        "profilePic": "assets/img/market_logo.png",
+        "profilePic": "assets/img/market_logo_3.png",
         "about": "Subtitle",
         "info": "Money offered",
         "description": "Description",

@@ -15,7 +15,9 @@ export class ContentPage {
     this.currentPersonas = this.personas.query();
   }
 
-openPersona(){
-  this.navCtrl.push('WorkPage');
+openPersona(persona: Persona) {
+    this.navCtrl.push('WorkPage', {
+      persona: persona
+    });
   }
 }

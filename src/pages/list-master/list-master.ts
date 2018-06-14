@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController } from 'ionic-angular';
 
-import { Item } from '../../models/item';
+import { Queryoptions } from '../../assets/data';
 import { Persona } from '../../models/persona';
 import { Personas } from '../../providers';
-import { Items } from '../../providers';
+import { DataFinder } from '../../providers/datafinder';
 
 @IonicPage()
 @Component({
@@ -12,48 +12,20 @@ import { Items } from '../../providers';
   templateUrl: 'list-master.html'
 })
 export class ListMasterPage {
-  currentItems: Item[];
-  currentPersonas: Persona[];
+  personasJSON: [];
+  workerJSON: [];
 
-  constructor(public navCtrl: NavController, public items: Items, public personas: Personas, public modalCtrl: ModalController) {
-    this.currentItems = this.items.query();
-    this.currentPersonas = this.personas.query();
+  constructor(public navCtrl: NavController, private dataFinder : DataFinder, public modalCtrl: ModalController) {
   }
 
-  /**
-   * The view loaded, let's query our items for the list
-   */
   ionViewDidLoad() {
+    this.dataFinder.getJSONDataAsync("./assets/data/queryoptions.json").then(data => { this.SetQueryOptionsData(data);
+      })
   }
 
-  /**
-   * Prompt the user to add a new item. This shows our ItemCreatePage in a
-   * modal and then adds the new item to our data source if the user created one.
-   */
-  addItem() {
-    let addModal = this.modalCtrl.create('ItemCreatePage');
-    addModal.onDidDismiss(item => {
-      if (item) {
-        this.items.add(item);
-      }
-    })
-    addModal.present();
-  }
-
-  /**
-   * Delete an item from the list of items.
-   */
-  deleteItem(item) {
-    this.items.delete(item);
-  }
-
-  /**
-   * Navigate to the detail page for this item.
-   */
-  openItem(item: Item) {
-    this.navCtrl.push('ItemDetailPage', {
-      item: item
-    });
+  SetQueryOptionsData(data : any){
+    this.personasJSON = data.personasJSON;
+    this.workerJSON = data.workerJSON;
   }
 
   openPersona(persona: Persona) {
@@ -64,5 +36,9 @@ export class ListMasterPage {
 
   OpenHistory(){
     this.navCtrl.push('ContentPage');
+  }
+
+  OpenProfile(){
+    this.navCtrl.push('ItemdetailPage');
   }
 }

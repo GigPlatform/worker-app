@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 
 import { Persona } from '../../models/persona';
 
+
 @Injectable()
 export class Personas {
-  personas: Persona[] = [];
+    personas: Persona[] = [];
 
-  defaultPersona: any = {
+    defaultPersona: any = {
     "name": "Job name",
     "profilePic": "assets/img/market_logo.png",
     "about": "Subtitle",
@@ -17,39 +18,6 @@ export class Personas {
   };
 
   constructor() {
-    let personas = [
-      {
-        "name": "Market 1",
-        "profilePic": "assets/img/market_logo.png",
-        "about": "Subtitle",
-        "info": "Money offered",
-        "description": "Description",
-        "skills": "Skills required",
-        "money": "Money earned"
-      },
-      {
-        "name": "Market 2",
-        "profilePic": "assets/img/market_logo_2.png",
-        "about": "Subtitle",
-        "info": "Money offered",
-        "description": "Description",
-        "skills": "Skills required",
-        "money": "Money earned"
-      },
-      {
-        "name": "Market 3",
-        "profilePic": "assets/img/market_logo_3.png",
-        "about": "Subtitle",
-        "info": "Money offered",
-        "description": "Description",
-        "skills": "Skills required",
-        "Money": "Money earned"
-      }
-    ];
-
-    for (let persona of personas) {
-      this.personas.push(new Persona(persona));
-    }
   }
 
   query(params?: any) {

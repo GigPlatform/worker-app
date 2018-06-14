@@ -1,0 +1,35 @@
+{
+	"personasJSON": [{
+        "name": "Market 1",
+        "profilePic": "assets/img/market_logo.png",
+        "about": "Subtitle",
+        "info": "Money offered",
+        "description": "Description",
+        "skills": "Skills required",
+        "money": "Money earned"
+      },
+      {
+        "name": "Market 2",
+        "profilePic": "assets/img/market_logo_2.png",
+        "about": "Subtitle",
+        "info": "Money offered",
+        "description": "Description",
+        "skills": "Skills required",
+        "money": "Money earned"
+      },
+      {
+        "name": "Market 3",
+        "profilePic": "assets/img/market_logo_3.png",
+        "about": "Subtitle",
+        "info": "Money offered",
+        "description": "Description",
+        "skills": "Skills required",
+        "Money": "Money earned"
+      }],
+
+      "workerJSON": [{
+      		"name": "Worker name",
+      		"profilePic": "assets/img/user.png",
+      		"about": "Rating"
+      	}]
+}

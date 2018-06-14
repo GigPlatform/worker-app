@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, ModalController, NavController, NavParams } from 'ionic-angular';
 
+import { Queryoptions } from '../../assets/data';
+import { DataFinder } from '../../providers/datafinder';
 import { Personas } from '../../providers';
 import { Persona } from '../../models/persona';
 
@@ -10,13 +12,20 @@ import { Persona } from '../../models/persona';
   templateUrl: 'work.html',
 })
 export class WorkPage {
-	calendars = [];
 	persona: any;
-	currentPersonas: Persona[];
+	personasJSON: [];
 
-  constructor(public navCtrl: NavController, navParams: NavParams, public personas: Personas) {
+  constructor(public navCtrl: NavController, navParams: NavParams, private dataFinder : DataFinder, public modalCtrl: ModalController, public personas: Personas) {
     this.persona = navParams.get('persona') || personas.defaultPersona;
-    this.currentPersonas = this.personas.query();
+  }
+
+  ionViewDidLoad() {
+    this.dataFinder.getJSONDataAsync("./assets/data/queryoptions.json").then(data => { this.SetQueryOptionsData(data);
+      })
+  }
+
+  SetQueryOptionsData(data : any){
+    this.personasJSON = data.personasJSON;
   }
 
   openPersona(persona: Persona) {

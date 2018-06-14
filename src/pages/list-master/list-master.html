@@ -12,48 +12,22 @@
 </ion-navbar>
 
 </ion-header>
-<!--
-<ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-list>
-      <button ion-item (click)="openPage(homePage)">
-        Home
-      </button>
-      <button ion-item (click)="openPage(friendsPage)">
-        Friends
-      </button>
-      <button ion-item (click)="openPage(eventsPage)">
-        Events
-      </button>
-      <button ion-item (click)="closeMenu()">
-        Close Menu
-      </button>
-    </ion-list>
-  </ion-content>
-</ion-menu>
-
-<ion-nav id="nav" #content [root]="rootPage"></ion-nav>
- <ion-navbar>
-    <ion-title>{{ 'LIST_MASTER_TITLE' | translate }}</ion-title>
-
-    <ion-buttons end>
-      <button ion-button icon-only (click)="addItem()">
-        <ion-icon name="add"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-navbar>
--->
 
 <ion-content>
 
   <ion-list>
 
-      <ion-list>
+    <ion-item *ngFor="let worker of workerJSON">
+       <button ion-item (click)="openProfile()">
+        <ion-thumbnail item-start>
+          <img [src]="worker.profilePic" />
+        </ion-thumbnail>
+        <h2>{{worker.name}}</h2>
+        <h3>{{worker.about}}</h3>
+      </button>
+    </ion-item>
+
+      <!-- <ion-list>
         <ion-item>
           <button ion-item (click)="openItem()">
             <ion-avatar item-start>
@@ -63,12 +37,11 @@
             <p>Rating</p>
           </button>
         </ion-item>
-      </ion-list>
+      </ion-list> -->
 
-      <div padding-vertical>
       <ion-list-header>Last works</ion-list-header>
-      <ion-item-sliding *ngFor="let persona of currentPersonas">
-       <button ion-item (click)="openPersona(persona)">
+      <ion-item-sliding *ngFor="let persona of personasJSON">
+       <button ion-item (click)="openPersona(personas)">
         <ion-thumbnail item-start>
           <img [src]="persona.profilePic" />
         </ion-thumbnail>
@@ -84,11 +57,10 @@
       </ion-item-options>
     </ion-item-sliding>
     <button ion-button full start (click)="OpenHistory()">Submit</button>
-    </div>
 
     <div padding-vertical>
     <ion-list-header>Suggestions</ion-list-header>
-     <ion-item-sliding *ngFor="let persona of currentPersonas">
+     <ion-item-sliding *ngFor="let persona of personasJSON">
        <button ion-item (click)="openPersona(persona)">
         <ion-thumbnail item-start>
           <img [src]="persona.profilePic" />

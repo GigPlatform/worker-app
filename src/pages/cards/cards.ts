@@ -24,7 +24,6 @@ export class CardsPage {
   }
 
   SetQueryOptionsData(data : any){
-    this.personasJSON = data.personasJSON;
     this.suggestionsJSON = data.suggestionsJSON;
   }
 

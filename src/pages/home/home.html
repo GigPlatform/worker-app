@@ -1,0 +1,60 @@
+<ion-header> 
+
+<ion-navbar text-center color="dark">
+<ion-navbar hideBackButton *navbar></ion-navbar>
+  <ion-buttons start>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-buttons>
+
+  <ion-title center>Homepage</ion-title>
+</ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+
+    <ion-item *ngFor="let worker of workerJSON">
+       <button ion-item (click)="openProfile()">
+        <ion-thumbnail item-start>
+          <img [src]="worker.profilePic" />
+        </ion-thumbnail>
+        <h2>{{worker.name}}</h2>
+        <h3>{{worker.about}}</h3>
+      </button>
+    </ion-item>
+
+      <ion-list-header>Last works</ion-list-header>
+      <ion-item *ngFor="let persona of completedJSON">
+       <button ion-item (click)="openPersona(persona)">
+        <ion-thumbnail item-start>
+          <img [src]="persona.profilePic" />
+        </ion-thumbnail>
+        <h2>{{persona.name}}</h2>
+        <h3>{{persona.about}}</h3>
+        <ion-note item-end *ngIf="persona.note">{{persona.note}}</ion-note>
+      </button>
+    </ion-item>
+    <button ion-button full start (click)="openHistory()">Submit</button>
+
+    <div padding-vertical>
+    <ion-list-header>Suggestions</ion-list-header>
+     <ion-item *ngFor="let persona of suggestionsJSON">
+       <button ion-item (click)="openPersona(persona)">
+        <ion-thumbnail item-start>
+          <img [src]="persona.profilePic" />
+        </ion-thumbnail>
+        <h2>{{persona.name}}</h2>
+        <h3>{{persona.about}}</h3>
+        <ion-note item-end *ngIf="persona.note">{{persona.note}}</ion-note>
+      </button>
+    </ion-item>
+
+    <button ion-button full>See more</button>
+    </div>
+
+  </ion-list> 
+</ion-content>

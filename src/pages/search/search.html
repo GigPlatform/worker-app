@@ -25,6 +25,33 @@
 	<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 	</ion-list>
 
+  <ion-grid>
+    <ion-list-header>Filter by:</ion-list-header>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label floating>Date</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col>
+        <ion-item>
+          <ion-label floating>Wage</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col>
+        <ion-item>
+          <ion-label floating>Market type</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+<!--
 	<div padding>
 	<ion-list-header>Filter by:</ion-list-header>
   <ion-segment [(ngModel)]="filter">
@@ -38,7 +65,7 @@
       Market type
     </ion-segment-button>
   </ion-segment>
-</div>
+</div> -->
 
 	<div #map id="map"></div>
   <!-- <ion-item>

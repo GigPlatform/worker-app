@@ -25,19 +25,6 @@ public getJSONDataAsync(filePath: string) : Promise<any> {
 					resolve(jsonRes);
 				}
 			);
-	}) /* .catch((reason) => this.handleError(reason)); */
-}
-
-	/* private handleError (error: Response | any){
-		let errMsg: string;
-		if (error instanceof Response){
-			const body = error.json() || '';
-			const err = JSON.stringify(body);
-			errMsg = `${error.status} - ${error.statusText || ''}: ${err}; 
-		} else {
-			errMsg = error.message ? error.message : error.toString();
-		  }
-		console.error(errMsg);
-		return Observable.throw(errMsg);
-	} */
+	}) 
  }
+}

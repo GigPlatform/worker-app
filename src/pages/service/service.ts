@@ -7,11 +7,11 @@ import { Persona } from '../../models/persona';
 
 @IonicPage()
 @Component({
-  selector: 'page-work',
-  templateUrl: 'work.html',
+  selector: 'page-service',
+  templateUrl: 'service.html'
 })
-export class WorkPage {
-	persona: any;
+export class ServicePage {
+  persona: any;
   suggestionsJSON: any[];
 
   constructor(public navCtrl: NavController, navParams: NavParams, public personas: Personas, private dataFinder : DataFinder, public modalCtrl: ModalController) {
@@ -27,19 +27,19 @@ export class WorkPage {
     this.suggestionsJSON = data.suggestionsJSON;
   }
 
-  openPersona(persona: Persona) {
+    openPersona(persona: Persona) {
     this.navCtrl.push('WorkPage', {
       persona: persona
     });
   }
 
-  openHistory(){
-    this.navCtrl.push('ContentPage');
-    }
-
-  openService(persona: Persona) {
-    this.navCtrl.push('ServicePage', {
+    openBilling(persona: Persona){
+      this.navCtrl.push('BillingPage', {
       persona: persona
     });
   }
-}
+
+    openHistory(){
+      this.navCtrl.push('ContentPage');
+    }
+  }

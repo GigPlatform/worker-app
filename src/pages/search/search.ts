@@ -13,7 +13,7 @@ import { DataFinder } from '../../providers/datafinder';
   templateUrl: 'search.html',
 })
 export class SearchPage {
-  personasJSON: [];
+  personasJSON: any[];
 	persona: any;
 
 	@ViewChild('map') mapElement: ElementRef;

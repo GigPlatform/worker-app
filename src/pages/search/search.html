@@ -41,10 +41,15 @@
 </div>
 
 	<div #map id="map"></div>
+  <!-- <ion-item>
+  <ion-buttons end>
+  <button ion-button (click)="addMarker()"><ion-icon name="add"></ion-icon>Add Marker</button>
+    </ion-buttons>
+  </ion-item> -->
 
 	<div padding-vertical>
     <ion-list-header>Jobs</ion-list-header>
-     <ion-item-sliding *ngFor="let persona of currentPersonas">
+     <ion-item *ngFor="let persona of personasJSON">
        <button ion-item (click)="openPersona(persona)">
         <ion-thumbnail item-start>
           <img [src]="persona.profilePic" />
@@ -53,13 +58,8 @@
         <h3>{{persona.about}}</h3>
         <ion-note item-end *ngIf="persona.note">{{persona.note}}</ion-note>
       </button>
+    </ion-item>
     
-    <ion-item-options>
-        <button ion-button color="danger" (click)="deleteItem(item)">
-          Delete
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
     <button ion-button full (click)="OpenHistory()">See more</button>
     </div>
 

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController } from 'ionic-angular';
 
-import { Queryoptions } from '../../assets/data';
 import { Persona } from '../../models/persona';
 import { Personas } from '../../providers';
 import { DataFinder } from '../../providers/datafinder';
@@ -12,10 +11,12 @@ import { DataFinder } from '../../providers/datafinder';
   templateUrl: 'list-master.html'
 })
 export class ListMasterPage {
-  personasJSON: [];
-  workerJSON: [];
+  personasJSON: any[];
+  workerJSON: any[];
+  completedJSON: any[];
+  suggestionsJSON: any[];
 
-  constructor(public navCtrl: NavController, private dataFinder : DataFinder, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public personas: Personas, private dataFinder : DataFinder, public modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
@@ -26,6 +27,8 @@ export class ListMasterPage {
   SetQueryOptionsData(data : any){
     this.personasJSON = data.personasJSON;
     this.workerJSON = data.workerJSON;
+    this.completedJSON = data.completedJSON;
+    this.suggestionsJSON = data.suggestionsJSON;
   }
 
   openPersona(persona: Persona) {
@@ -34,11 +37,11 @@ export class ListMasterPage {
     });
   }
 
-  OpenHistory(){
+  openHistory(){
     this.navCtrl.push('ContentPage');
   }
 
-  OpenProfile(){
-    this.navCtrl.push('ItemdetailPage');
+  openProfile(){
+    this.navCtrl.push('ItemDetailPage');
   }
 }

@@ -25,36 +25,97 @@
 
 <ion-content padding>
   <div padding>
-  <ion-segment [(ngModel)]="pet">
-    <ion-segment-button value="Active">
-      Active
-    </ion-segment-button>
-    <ion-segment-button value="Pending">
-      Pending
-    </ion-segment-button>
-    <ion-segment-button value="Completed">
-      Completed
-    </ion-segment-button>
-    <ion-segment-button value="Canceled">
-      Canceled
-    </ion-segment-button>
-    <ion-segment-button value="Canceled">
-      Suggestions
-    </ion-segment-button>
-  </ion-segment>
-</div>
+    <ion-segment [(ngModel)]="history">
+      <ion-segment-button value="Active">
+        Active
+      </ion-segment-button>
+      <ion-segment-button value="Pending">
+        Pending
+      </ion-segment-button>
+      <ion-segment-button value="Completed">
+        Completed
+      </ion-segment-button>
+      <ion-segment-button value="Canceled">
+        Canceled
+      </ion-segment-button>
+      <ion-segment-button value="Suggestions">
+        Suggestions
+      </ion-segment-button>
+    </ion-segment>
+  </div>
 
-<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 
-  <ion-item *ngFor="let persona of currentPersonas">
-       <button ion-item (click)="openPersona(persona)">
-        <ion-thumbnail item-start>
-          <img [src]="persona.profilePic" />
-        </ion-thumbnail>
-        <h2>{{persona.name}}</h2>
-        <h3>Description</h3>
-        <p>{{persona.about}}</p>
-        <ion-note item-end *ngIf="persona.note">{{persona.note}}</ion-note>
-      </button>
-    </ion-item>
+  <div [ngSwitch]="history">
+    <ion-list *ngSwitchCase="'Active'">
+      <ion-item *ngFor="let persona of activeJSON">
+         <button ion-item (click)="openPersona(persona)">
+          <ion-thumbnail item-start>
+            <img [src]="persona.profilePic" />
+          </ion-thumbnail>
+          <h2>{{persona.name}}</h2>
+          <h3>Description</h3>
+          <p>{{persona.about}}</p>
+          <ion-note item-end *ngIf="persona.note">{{persona.note}}</ion-note>
+        </button>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'Pending'">
+      <ion-item *ngFor="let persona of pendingJSON">
+         <button ion-item (click)="openPersona(persona)">
+          <ion-thumbnail item-start>
+            <img [src]="persona.profilePic" />
+          </ion-thumbnail>
+          <h2>{{persona.name}}</h2>
+          <h3>Description</h3>
+          <p>{{persona.about}}</p>
+          <ion-note item-end *ngIf="persona.note">{{persona.note}}</ion-note>
+        </button>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'Completed'">
+      <ion-item *ngFor="let persona of completedJSON">
+         <button ion-item (click)="openPersona(persona)">
+          <ion-thumbnail item-start>
+            <img [src]="persona.profilePic" />
+          </ion-thumbnail>
+          <h2>{{persona.name}}</h2>
+          <h3>Description</h3>
+          <p>{{persona.about}}</p>
+          <ion-note item-end *ngIf="persona.note">{{persona.note}}</ion-note>
+        </button>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'Canceled'">
+      <ion-item *ngFor="let persona of canceledJSON">
+         <button ion-item (click)="openPersona(persona)">
+          <ion-thumbnail item-start>
+            <img [src]="persona.profilePic" />
+          </ion-thumbnail>
+          <h2>{{persona.name}}</h2>
+          <h3>Description</h3>
+          <p>{{persona.about}}</p>
+          <ion-note item-end *ngIf="persona.note">{{persona.note}}</ion-note>
+        </button>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'Suggestions'">
+      <ion-item *ngFor="let persona of suggestionsJSON">
+         <button ion-item (click)="openPersona(persona)">
+          <ion-thumbnail item-start>
+            <img [src]="persona.profilePic" />
+          </ion-thumbnail>
+          <h2>{{persona.name}}</h2>
+          <h3>Description</h3>
+          <p>{{persona.about}}</p>
+          <ion-note item-end *ngIf="persona.note">{{persona.note}}</ion-note>
+        </button>
+      </ion-item>
+    </ion-list>
+
+  </div>
 </ion-content>

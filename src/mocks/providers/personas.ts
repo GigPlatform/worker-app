@@ -7,7 +7,7 @@ import { Persona } from '../../models/persona';
 export class Personas {
     personas: Persona[] = [];
 
-    defaultPersona: any = {
+   defaultPersona: any = {
     "name": "Job name",
     "profilePic": "assets/img/market_logo.png",
     "about": "Subtitle",

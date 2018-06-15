@@ -30,13 +30,13 @@
   </div>
  
   <div class="center">
-  <button ion-button block start (click)="OpenHistory()">Save for later</button>
-  <button ion-button block end (click)="OpenService()">Book now</button>
+  <button ion-button block start (click)="openHistory()">Save for later</button>
+  <button ion-button block end (click)="openService(persona)">Book now</button>
 </div>
 
 <div padding-vertical>
     <ion-list-header>More like this job</ion-list-header>
-     <ion-item-sliding *ngFor="let persona of personasJSON">
+     <ion-item *ngFor="let persona of suggestionsJSON">
        <button ion-item (click)="openPersona(persona)">
         <ion-thumbnail item-start>
           <img [src]="persona.profilePic" />
@@ -45,13 +45,8 @@
         <h3>{{persona.about}}</h3>
         <ion-note item-end *ngIf="persona.note">{{persona.note}}</ion-note>
       </button>
-    
-    <ion-item-options>
-        <button ion-button color="danger" (click)="deleteItem(item)">
-          {{ 'DELETE_BUTTON' | translate }}
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
+    </ion-item>
+
     <button ion-button full (click)="OpenHistory()">See more</button>
     </div>
 

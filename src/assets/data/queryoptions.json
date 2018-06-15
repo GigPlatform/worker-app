@@ -31,5 +31,145 @@
       		"name": "Worker name",
       		"profilePic": "assets/img/user.png",
       		"about": "Rating"
-      	}]
+      	}],
+
+      "activeJSON": [{
+        "name": "Market 1",
+        "profilePic": "assets/img/switch_logo1.png",
+        "about": "Subtitle",
+        "info": "Money offered",
+        "description": "Description",
+        "skills": "Skills required",
+        "money": "Money earned"
+      },
+      {
+        "name": "Market 2",
+        "profilePic": "assets/img/switch_logo2.png",
+        "about": "Subtitle",
+        "info": "Money offered",
+        "description": "Description",
+        "skills": "Skills required",
+        "money": "Money earned"
+      },
+      {
+        "name": "Market 3",
+        "profilePic": "assets/img/switch_logo3.png",
+        "about": "Subtitle",
+        "info": "Money offered",
+        "description": "Description",
+        "skills": "Skills required",
+        "Money": "Money earned"
+      }],
+
+      "pendingJSON": [{
+        "name": "Market 1",
+        "profilePic": "assets/img/market_logo.png",
+        "about": "Subtitle",
+        "info": "Money offered",
+        "description": "Description",
+        "skills": "Skills required",
+        "money": "Money earned"
+      },
+      {
+        "name": "Market 2",
+        "profilePic": "assets/img/market_logo_2.png",
+        "about": "Subtitle",
+        "info": "Money offered",
+        "description": "Description",
+        "skills": "Skills required",
+        "money": "Money earned"
+      },
+      {
+        "name": "Market 3",
+        "profilePic": "assets/img/market_logo_3.png",
+        "about": "Subtitle",
+        "info": "Money offered",
+        "description": "Description",
+        "skills": "Skills required",
+        "Money": "Money earned"
+      }],
+
+    "completedJSON": [{
+        "name": "Market 1",
+        "profilePic": "assets/img/switch_logo4.png",
+        "about": "Subtitle",
+        "info": "Money offered",
+        "description": "Description",
+        "skills": "Skills required",
+        "money": "Money earned"
+      },
+      {
+        "name": "Market 2",
+        "profilePic": "assets/img/switch_logo11.png",
+        "about": "Subtitle",
+        "info": "Money offered",
+        "description": "Description",
+        "skills": "Skills required",
+        "money": "Money earned"
+      },
+      {
+        "name": "Market 3",
+        "profilePic": "assets/img/switch_logo5.png",
+        "about": "Subtitle",
+        "info": "Money offered",
+        "description": "Description",
+        "skills": "Skills required",
+        "Money": "Money earned"
+      }],
+
+    "canceledJSON": [{
+        "name": "Market 1",
+        "profilePic": "assets/img/switch_logo6.png",
+        "about": "Subtitle",
+        "info": "Money offered",
+        "description": "Description",
+        "skills": "Skills required",
+        "money": "Money earned"
+      },
+      {
+        "name": "Market 2",
+        "profilePic": "assets/img/switch_logo7.png",
+        "about": "Subtitle",
+        "info": "Money offered",
+        "description": "Description",
+        "skills": "Skills required",
+        "money": "Money earned"
+      },
+      {
+        "name": "Market 3",
+        "profilePic": "assets/img/switch_logo8.png",
+        "about": "Subtitle",
+        "info": "Money offered",
+        "description": "Description",
+        "skills": "Skills required",
+        "Money": "Money earned"
+      }],
+
+    "suggestionsJSON": [{
+        "name": "Market 1",
+        "profilePic": "assets/img/switch_logo9.png",
+        "about": "Subtitle",
+        "info": "Money offered",
+        "description": "Description",
+        "skills": "Skills required",
+        "money": "Money earned"
+      },
+      {
+        "name": "Market 2",
+        "profilePic": "assets/img/switch_logo10.png",
+        "about": "Subtitle",
+        "info": "Money offered",
+        "description": "Description",
+        "skills": "Skills required",
+        "money": "Money earned"
+      },
+      {
+        "name": "Market 3",
+        "profilePic": "assets/img/switch_logo11.png",
+        "about": "Subtitle",
+        "info": "Money offered",
+        "description": "Description",
+        "skills": "Skills required",
+        "Money": "Money earned"
+      }]
 }

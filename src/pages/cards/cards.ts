@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController, NavParams } from 'ionic-angular';
+
+import { DataFinder } from '../../providers/datafinder';
 import { Personas } from '../../providers';
 import { Persona } from '../../models/persona';
 
@@ -10,12 +12,21 @@ import { Persona } from '../../models/persona';
 })
 export class CardsPage {
   persona: any;
-  currentPersonas: Persona[];
+  suggestionsJSON: any[];
 
-  constructor(public navCtrl: NavController, navParams: NavParams, public personas: Personas) {
+  constructor(public navCtrl: NavController, navParams: NavParams, public personas: Personas, private dataFinder : DataFinder, public modalCtrl: ModalController) {
     this.persona = navParams.get('persona') || personas.defaultPersona;
-    this.currentPersonas = this.personas.query();
-    }
+  }
+
+  ionViewDidLoad() {
+    this.dataFinder.getJSONDataAsync("./assets/data/queryoptions.json").then(data => { this.SetQueryOptionsData(data);
+      })
+  }
+
+  SetQueryOptionsData(data : any){
+    this.personasJSON = data.personasJSON;
+    this.suggestionsJSON = data.suggestionsJSON;
+  }
 
     openPersona(persona: Persona) {
     this.navCtrl.push('WorkPage', {
@@ -23,11 +34,13 @@ export class CardsPage {
     });
   }
 
-    OpenBilling(){
-      this.navCtrl.push('BillingPage');
-    }
+    openBilling(persona: Persona){
+      this.navCtrl.push('BillingPage', {
+      persona: persona
+    });
+  }
 
-    OpenHistory(){
+    openHistory(){
       this.navCtrl.push('ContentPage');
     }
   }

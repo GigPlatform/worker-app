@@ -8,9 +8,8 @@ import 'rxjs/add/operator/catch';
 
 export class DataFinder {
 	
-	constructor(private http: Http){
+constructor(private http: Http){
 	}
-
 
 public getJSONDataAsync(filePath: string) : Promise<any> {
 	return new Promise((resolve, reject) => {
@@ -26,10 +25,10 @@ public getJSONDataAsync(filePath: string) : Promise<any> {
 					resolve(jsonRes);
 				}
 			);
-	}).catch((reason) => this.handleError(reason));
-	}
+	}) /* .catch((reason) => this.handleError(reason)); */
+}
 
-	private handleError (error: Response | any){
+	/* private handleError (error: Response | any){
 		let errMsg: string;
 		if (error instanceof Response){
 			const body = error.json() || '';
@@ -37,8 +36,8 @@ public getJSONDataAsync(filePath: string) : Promise<any> {
 			errMsg = `${error.status} - ${error.statusText || ''}: ${err}; 
 		} else {
 			errMsg = error.message ? error.message : error.toString();
-		}
+		  }
 		console.error(errMsg);
 		return Observable.throw(errMsg);
-	}
+	} */
  }

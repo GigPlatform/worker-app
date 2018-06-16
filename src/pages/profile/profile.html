@@ -1,6 +1,7 @@
 <ion-header> 
 
 <ion-navbar text-center color="dark">
+<ion-navbar hideBackButton *navbar></ion-navbar>
 
   <ion-buttons start>
     <button ion-button icon-only menuToggle>
@@ -8,23 +9,35 @@
     </button>
   </ion-buttons>
 
-  <ion-title center> Worker name </ion-title>
+  <ion-title center> "Worker name" </ion-title>
 </ion-navbar>
 
 </ion-header>
 
-
 <ion-content>
-  <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + item.profilePic + ')'">
-  </div>
 
-  <div class="item-detail" padding>
-    <h2>{{item.name}}</h2>
-    <h3>{{item.about}}</h3>
-    <p>{{item.info}}</p>
-    <ion-item>
-    <ion-label>Active</ion-label>
-    <ion-toggle [(ngModel)]="Active"></ion-toggle>
-  </ion-item>
-  </div>
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-item *ngFor="let worker of workerJSON">
+        <div class="worker.image" padding-vertical>
+          <img [src]="worker.profilePic" />
+        </div>
+       </ion-item>
+     </ion-col>
+
+    <ion-col>
+      <ion-item *ngFor="let worker of workerJSON">
+       <h2>{{worker.name}}</h2>
+       <h3>{{worker.about}}</h3>
+       <p>{{worker.info}}</p>
+      </ion-item>
+       <ion-item>
+        <ion-label>Active</ion-label>
+          <ion-toggle [(ngModel)]="Active"></ion-toggle>
+       </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
 </ion-content>

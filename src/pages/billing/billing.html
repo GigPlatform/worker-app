@@ -17,21 +17,26 @@
  <div class="persona-profile" text-center #profilePic [style.background-image]="'url(' + persona.profilePic + ')'">
   </div>
 
-  <div class="persona-detail" padding-vertical>
-    <h2>{{persona.name}}</h2>
-    <h3>{{persona.about}}</h3>
-    <!-- <p>{{persona.info}}</p> -->
-  </div>
- 
-  <div class="persona-description" padding-vertical>
-    <h2>{{persona.name}}</h2>
-    <h3>{{persona.description}}</h3>
-    <p>{{persona.skills}}</p>
-  </div>
- 
-  <div class="persona-money" padding-vertical>
-    <h2>{{persona.money}}</h2>
-  </div>
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <div class="persona-detail" padding-vertical>
+        <h2>{{persona.name}}</h2>
+        <h3>{{persona.about}}</h3>
+        <p>{{persona.description}}</p>
+      </div>
+    </ion-col>
+
+    <ion-col>
+      <ion-item *ngFor="let employee of employeeJSON">
+      <div class="employee-detail" padding-vertical>
+        <h2>{{employee.name}}</h2>
+        <h3>{{persona.money}}</h3>
+      </div>
+    </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-grid>
 
   <div class="center">
   <button ion-button round padding>Payment method</button>
@@ -65,7 +70,7 @@
 
 <ion-list radio-group [(ngModel)]="RequesterRating">
 	<ion-list-header>
-    Rquester rating
+    Requester rating
   </ion-list-header>
   <ion-item>
     <ion-label>5</ion-label>

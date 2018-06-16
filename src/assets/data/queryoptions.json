@@ -30,8 +30,16 @@
       "workerJSON": [{
       		"name": "Worker name",
       		"profilePic": "assets/img/user.png",
-      		"about": "Rating"
+      		"about": "Rating",
+          "info": "Description"
       	}],
+
+      "employeeJSON": [{
+          "name": "Requester name",
+          "profilePic": "assets/img/user.png",
+          "about": "Rating",
+          "description": "Description"
+        }],
 
       "activeJSON": [{
         "name": "Market 1",

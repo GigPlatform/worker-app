@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, ModalController, NavController } from 'ionic-angular';
 
-import { Items } from '../../providers';
+import { Persona } from '../../models/persona';
+import { Personas } from '../../providers';
+import { DataFinder } from '../../providers/datafinder';
 
 @IonicPage()
 @Component({
@@ -9,10 +11,17 @@ import { Items } from '../../providers';
   templateUrl: 'profile.html'
 })
 export class ProfilePage {
-  item: any;
+	workerJSON: any[];
 
-  constructor(public navCtrl: NavController, navParams: NavParams, items: Items) {
-    this.item = navParams.get('item') || items.defaultItem;
+  constructor(public navCtrl: NavController, public personas: Personas, private dataFinder : DataFinder, public modalCtrl: ModalController) {
   }
 
+  ionViewDidLoad() {
+    this.dataFinder.getJSONDataAsync("./assets/data/queryoptions.json").then(data => { this.SetQueryOptionsData(data);
+      })
+  }
+
+  SetQueryOptionsData(data : any){
+    this.workerJSON = data.workerJSON;
+    }
 }

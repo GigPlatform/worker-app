@@ -13,6 +13,7 @@ import { Persona } from '../../models/persona';
 export class ServicePage {
   persona: any;
   suggestionsJSON: any[];
+  employeeJSON: any[];
 
   constructor(public navCtrl: NavController, navParams: NavParams, public personas: Personas, private dataFinder : DataFinder, public modalCtrl: ModalController) {
     this.persona = navParams.get('persona') || personas.defaultPersona;
@@ -25,6 +26,7 @@ export class ServicePage {
 
   SetQueryOptionsData(data : any){
     this.suggestionsJSON = data.suggestionsJSON;
+    this.employeeJSON = data.employeeJSON;
   }
 
     openPersona(persona: Persona) {

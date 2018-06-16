@@ -17,17 +17,24 @@
  <div class="persona-profile" text-center #profilePic [style.background-image]="'url(' + persona.profilePic + ')'">
   </div>
 
-  <div class="persona-detail" padding-vertical>
-    <h2>{{persona.name}}</h2>
-    <h3>{{persona.about}}</h3>
-    <p>{{persona.info}}</p>
-  </div>
- 
-  <div class="persona-description" padding-vertical>
-    <h2>{{persona.name}}</h2>
-    <h3>{{persona.description}}</h3>
-    <p>{{persona.skills}}</p>
-  </div>
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <div class="persona-detail" padding-vertical>
+        <h2>{{persona.name}}</h2>
+        <h3>{{persona.about}}</h3>
+        <p>{{persona.info}}</p>
+      </div>
+    </ion-col>
+
+    <ion-col>
+      <div class="persona-description" padding-vertical>
+        <h2>{{persona.description}}</h2>
+        <p>{{persona.skills}}</p>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
  
   <div class="center">
   <button ion-button block start (click)="openHistory()">Save for later</button>

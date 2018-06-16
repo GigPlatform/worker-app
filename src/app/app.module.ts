@@ -19,8 +19,6 @@ import { Settings, User, Api } from '../providers';
 import { MyApp } from './app.component';
 import { Personas } from '../mocks/providers/personas';
 
-// The translate loader needs to know where to load i18n files
-// in Ionic's static asset pipeline.
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -73,7 +71,6 @@ export function provideSettings(storage: Storage) {
     Geolocation,
     StatusBar,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
-    // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     DataFinder
   ]

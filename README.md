@@ -1,0 +1,1 @@
+Worker app for Meta-GIG built with Ionic Cordova

@@ -27,11 +27,58 @@
         "Money": "Money earned"
       }],
 
+      "stores":[{
+        "name": "Store name",
+        "city": "Portland",
+        "country": "USA",
+        "postcode": "01100"
+        }],
+
+      "Products":[{
+        "name": "Product 1",
+        "price": "$100",
+        "stock": "150",
+        "categories": "Van",
+        "date": "04/11",
+        "status": "Pending"
+      },
+      {
+        "name": "Product 2",
+        "price": "$150",
+        "stock": "330",
+        "categories": "Sedan",
+        "date": "03/24",
+        "status": "Active"
+      },
+      {
+        "name": "Product 3",
+        "price": "$320",
+        "stock": "55",
+        "categories": "SUV",
+        "date": "11/14",
+        "status": "Cancelled"
+      }
+      ],
+
+      "dashboard": [{
+        "sales": "$150,728",
+        "earnings": "$23,876",
+        "recOrd": "174",
+        "avOrdVal": "$26",
+        "commision": "4%"
+        }],
+
       "workerJSON": [{
-      		"name": "Worker name",
+      		"first_name": "Ryan",
+          "last_name": "James",
       		"profilePic": "assets/img/user.png",
       		"about": "Rating",
-          "info": "Description"
+          "info": "jhklgndjkagilajnvjwldkgnrjkwlgnjkwllbnbvjkr",
+          "city": "Denver",
+          "state": "Colorado",
+          "postcode": "01119",
+          "country": "USA",
+          "phone": "5555 5555"
       	}],
 
       "employeeJSON": [{

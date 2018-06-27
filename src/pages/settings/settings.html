@@ -1,0 +1,203 @@
+<ion-header> 
+
+<ion-navbar text-center color="dark">
+<ion-navbar hideBackButton *navbar></ion-navbar>
+  <ion-buttons start>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-buttons>
+
+  <ion-title center>Settings</ion-title>
+</ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+	<div padding>
+	    <ion-segment [(ngModel)]="config">
+	      <ion-segment-button value="Store">
+	        Store
+	      </ion-segment-button>
+	      <ion-segment-button value="Inventory">
+	        Inventory
+	      </ion-segment-button>
+	      <ion-segment-button value="Profile">
+	        Profile
+	      </ion-segment-button>
+	      <ion-segment-button value="Reports">
+	        Reports
+	      </ion-segment-button>
+	    </ion-segment>
+	</div>
+
+	<div [ngSwitch]="config">
+	    <ion-list *ngSwitchCase="'Store'">
+	    	<ion-grid>
+	    		<ion-row>
+			  		<ion-col>
+			  			<ion-list>
+				    		<div *ngFor ="let store of stores">
+				    			<ion-list-header>Store details:</ion-list-header>
+    							<ion-item>
+						    		<ion-label color="primary">Store name</ion-label>
+						    		<ion-input placeholder type="text" [(ngModel)]="store.name"></ion-input>
+								</ion-item>
+								<ion-item>
+							    	<ion-label color="primary">City</ion-label>
+							    	<ion-input placeholder type="text" [(ngModel)]="store.city"></ion-input>
+								</ion-item>
+								<ion-item>
+							    	<ion-label color="primary">Country</ion-label>
+							    	<ion-input placeholder type="text" [(ngModel)]="store.country"></ion-input>
+								</ion-item>
+								<ion-item>
+							    	<ion-label color="primary">Postcode</ion-label>
+							    	<ion-input placeholder type="text" [(ngModel)]="store.postcode"></ion-input>
+								</ion-item>
+							</div>
+							<div class="paypalbutton" padding-vertical>
+								<button ion-button round (click)="OpenHistory()" color="secondary">Paypal Configuration</button>
+							</div>
+						</ion-list>
+			  		</ion-col>
+			  		<ion-col>
+	    			</ion-col>
+			  	</ion-row>
+			</ion-grid>
+			<button ion-button block (click)="OpenHistory()">Save changes</button>
+			<button ion-button block (click)="OpenHistory()" color="light">Cancel</button>
+		</ion-list>
+
+		<ion-list *ngSwitchCase="'Inventory'">
+			<ion-grid class="tabla">
+				<div *ngFor ="let product of products">
+		    		<ion-row>
+				  		<ion-col>
+				  			Product:
+				  		</ion-col>
+				  		<ion-col>
+				  			Price:
+				  		</ion-col>
+				  		<ion-col>
+				  			Stock:
+				  		</ion-col>
+				  		<ion-col>
+				  			Categories:
+				  		</ion-col>
+				  		<ion-col>
+				  			Date:
+				  		</ion-col>
+				  		<ion-col>
+				  			Status:
+				  		</ion-col>
+				  	</ion-row>
+				  	<ion-row>
+				  		<ion-col>
+				  			<h2>{{product.name}}</h2>
+				  		</ion-col>
+				  		<ion-col>
+				  			<h2>{{product.price}}</h2>
+				  		</ion-col>
+				  		<ion-col>
+				  			<h2>{{product.stock}}</h2>
+				  		</ion-col>
+				  	</ion-row>
+				</div>
+			</ion-grid>
+			<button ion-button block (click)="OpenHistory()">Save changes</button>
+			<button ion-button block (click)="OpenHistory()" color="light">Cancel</button>
+		</ion-list>
+
+		<ion-list *ngSwitchCase="'Profile'">
+			<ion-grid>
+	    		<ion-row>
+			  		<ion-col>
+			      		<ion-item *ngFor="let worker of workerJSON">
+			        		<div class="worker_image" padding-vertical>
+			        			<img [src]="worker.profilePic" />
+			        		</div>
+			       		</ion-item>
+			     	</ion-col>
+			     	<ion-col>
+				    	<ion-list>
+				    		<div *ngFor ="let worker of workerJSON">
+    							<ion-item>
+						    		<ion-label color="primary">First Name</ion-label>
+						    		<ion-input placeholder type="text" [(ngModel)]="worker.first_name"></ion-input>
+								</ion-item>
+								<ion-item>
+							    	<ion-label color="primary">Last Name</ion-label>
+							    	<ion-input placeholder type="text" [(ngModel)]="worker.last_name"></ion-input>
+								</ion-item>
+								<ion-item>
+							    	<ion-label color="primary">Phone</ion-label>
+							    	<ion-input placeholder type="text" [(ngModel)]="worker.phone"></ion-input>
+								</ion-item>
+								<ion-item>
+							    	<ion-label color="primary">Country</ion-label>
+							    	<ion-input placeholder type="text" [(ngModel)]="worker.country"></ion-input>
+								</ion-item>
+								<ion-item>
+							    	<ion-label color="primary">City</ion-label>
+							    	<ion-input placeholder type="text" [(ngModel)]="worker.city"></ion-input>
+								</ion-item>
+								<ion-item>
+							    	<ion-label color="primary">State</ion-label>
+							    	<ion-input placeholder type="text" [(ngModel)]="worker.state"></ion-input>
+								</ion-item>
+								<ion-item>
+							    	<ion-label color="primary">Postcode</ion-label>
+							    	<ion-input placeholder type="text" [(ngModel)]="worker.postcode"></ion-input>
+								</ion-item>
+							</div>
+						</ion-list>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+			<ion-list>
+  				<ion-item *ngFor ="let worker of workerJSON">
+				    <ion-label floating>Description</ion-label>
+				    <ion-input placeholder type="text" [(ngModel)]="worker.info"></ion-input>
+				</ion-item>
+			</ion-list>
+			<button ion-button block (click)="OpenHistory()">Save changes</button>
+			<button ion-button block (click)="OpenHistory()" color="light">Cancel</button>
+		</ion-list>
+		<ion-list *ngSwitchCase="'Reports'">
+			<ion-grid>
+	    		<ion-row>
+			  		<ion-col>
+			  		</ion-col>
+			  		<ion-col>
+			  			<ion-list-header>Dashboard:</ion-list-header>
+			  			<ion-list>
+				    		<div *ngFor ="let dash of dashboard">
+    							<ion-item>
+						    		<ion-label color="primary">Total Sales:</ion-label>
+						    		<ion-input disabled="true" [(ngModel)]="dash.sales"></ion-input>
+								</ion-item>
+								<ion-item>
+							    	<ion-label color="primary">Total Earnings:</ion-label>
+							    	<ion-input disabled="true" [(ngModel)]="dash.earnings"></ion-input>
+								</ion-item>
+								<ion-item>
+							    	<ion-label color="primary">Total Orders:</ion-label>
+							    	<ion-input disabled="true" [(ngModel)]="dash.recOrd"></ion-input>
+								</ion-item>
+								<ion-item>
+							    	<ion-label color="primary">Average Order Value:</ion-label>
+							    	<ion-input disabled="true" [(ngModel)]="dash.avOrdVal"></ion-input>
+								</ion-item>
+								<ion-item>
+							    	<ion-label color="primary">Commision</ion-label>
+							    	<ion-input disabled="true" [(ngModel)]="dash.commision"></ion-input>
+								</ion-item>
+							</div>
+						</ion-list>
+			  		</ion-col>
+			  	</ion-row>
+			</ion-grid>
+		</ion-list>
+	</div>
+</ion-content>

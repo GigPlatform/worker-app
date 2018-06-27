@@ -19,6 +19,7 @@ export class ContentPage {
   suggestionsJSON: any[];
 
   constructor(public navCtrl: NavController, public personas: Personas, private dataFinder : DataFinder, public modalCtrl: ModalController) {
+    this.history = "Active";
   }
 
   ionViewDidLoad() {

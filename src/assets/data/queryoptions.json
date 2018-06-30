@@ -34,7 +34,7 @@
         "postcode": "01100"
         }],
 
-      "Products":[{
+      "products":[{
         "name": "Product 1",
         "price": "$100",
         "stock": "150",

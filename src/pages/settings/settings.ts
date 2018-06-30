@@ -15,7 +15,6 @@ export class SettingsPage {
 	dashboard: any[];
 
   constructor(public navCtrl: NavController, private dataFinder : DataFinder, public modalCtrl: ModalController) {
-  	this.config = "Store";
   }
 
   ionViewDidLoad() {

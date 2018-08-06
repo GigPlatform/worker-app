@@ -1,7 +1,6 @@
 <ion-header> 
 
-<ion-navbar text-center color="dark">
-<ion-navbar hideBackButton *navbar></ion-navbar>
+<ion-toolbar text-center color="dark">
   <ion-buttons start>
     <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
@@ -9,13 +8,13 @@
   </ion-buttons>
 
   <ion-title center>Settings</ion-title>
-</ion-navbar>
+</ion-toolbar>
 
 </ion-header>
 
 <ion-content padding>
 	<div padding>
-	    <ion-segment [(ngModel)]="config">
+	    <ion-segment [(ngModel)]="switch">
 	      <ion-segment-button value="Store">
 	        Store
 	      </ion-segment-button>
@@ -28,36 +27,88 @@
 	      <ion-segment-button value="Reports">
 	        Reports
 	      </ion-segment-button>
+	      <ion-segment-button value="Prueba">
+	        Prueba
+	      </ion-segment-button>
 	    </ion-segment>
 	</div>
 
-	<div [ngSwitch]="config">
+	<div [ngSwitch]="switch">
 	    <ion-list *ngSwitchCase="'Store'">
 	    	<ion-grid>
 	    		<ion-row>
 			  		<ion-col>
 			  			<ion-list>
-				    		<div *ngFor ="let store of stores">
 				    			<ion-list-header>Store details:</ion-list-header>
-    							<ion-item>
-						    		<ion-label color="primary">Store name</ion-label>
-						    		<ion-input placeholder type="text" [(ngModel)]="store.name"></ion-input>
-								</ion-item>
-								<ion-item>
-							    	<ion-label color="primary">City</ion-label>
-							    	<ion-input placeholder type="text" [(ngModel)]="store.city"></ion-input>
-								</ion-item>
-								<ion-item>
-							    	<ion-label color="primary">Country</ion-label>
-							    	<ion-input placeholder type="text" [(ngModel)]="store.country"></ion-input>
-								</ion-item>
-								<ion-item>
-							    	<ion-label color="primary">Postcode</ion-label>
-							    	<ion-input placeholder type="text" [(ngModel)]="store.postcode"></ion-input>
-								</ion-item>
-							</div>
+				    			<ion-grid class="tabla">
+									<div *ngFor ="let store of stores">
+							    		<ion-row>
+									  		<ion-col>
+									  			Store name:
+									  		</ion-col>
+									  		<ion-col>
+									  			City:
+									  		</ion-col>
+									  		<ion-col>
+									  			Country:
+									  		</ion-col>
+									  		<ion-col>
+									  			Postcode:
+									  		</ion-col>
+									  		<ion-col>
+									  			Payment method:
+									  		</ion-col>
+									  	</ion-row>
+									  	<ion-row>
+									  		<ion-col>
+									  			<h2>{{store.name}}</h2>
+									  		</ion-col>
+									  		<ion-col>
+									  			<h2>{{store.city}}</h2>
+									  		</ion-col>
+									  		<ion-col>
+									  			<h2>{{store.country}}</h2>
+									  		</ion-col>
+									  		<ion-col>
+									  			<h2>{{store.postcode}}</h2>
+									  		</ion-col>
+									  		<ion-col>
+									  			<h2>{{store.payment}}</h2>
+									  		</ion-col>
+									  	</ion-row>
+									</div>
+								</ion-grid>
+								<ion-grid>
+									<ion-row>
+										<ion-col>
+											<button ion-button round color="secondary" (click)="OpenStore()">Add new store</button>
+										</ion-col>
+										<ion-col>
+										</ion-col>
+										<ion-col>
+										</ion-col>
+									</ion-row>
+								</ion-grid>
+				    			<!-- <ion-list>
+	    							<ion-item>
+							    		<ion-label color="primary">Store name</ion-label>
+							    		<ion-input placeholder type="text" [(ngModel)]="store.name"></ion-input>
+									</ion-item>
+									<ion-item>
+								    	<ion-label color="primary">City</ion-label>
+								    	<ion-input placeholder type="text" [(ngModel)]="store.city"></ion-input>
+									</ion-item>
+									<ion-item>
+								    	<ion-label color="primary">Country</ion-label>
+								    	<ion-input placeholder type="text" [(ngModel)]="store.country"></ion-input>
+									</ion-item>
+									<ion-item>
+								    	<ion-label color="primary">Postcode</ion-label>
+								    	<ion-input placeholder type="text" [(ngModel)]="store.postcode"></ion-input>
+									</ion-item>
+								</ion-list> -->
 							<div class="paypalbutton" padding-vertical>
-								<button ion-button round (click)="OpenHistory()" color="secondary">Paypal Configuration</button>
+								<button ion-button round (click)="OpenHPaypal()" color="secondary">Paypal Configuration</button>
 							</div>
 						</ion-list>
 			  		</ion-col>
@@ -66,7 +117,7 @@
 			  	</ion-row>
 			</ion-grid>
 			<button ion-button block (click)="OpenHistory()">Save changes</button>
-			<button ion-button block (click)="OpenHistory()" color="light">Cancel</button>
+			<button ion-button block (click)="OpenCancel()" color="light">Cancel</button>
 		</ion-list>
 
 		<ion-list *ngSwitchCase="'Inventory'">
@@ -102,11 +153,31 @@
 				  		<ion-col>
 				  			<h2>{{product.stock}}</h2>
 				  		</ion-col>
+				  		<ion-col>
+				  			<h2>{{product.categories}}</h2>
+				  		</ion-col>
+				  		<ion-col>
+				  			<h2>{{product.date}}</h2>
+				  		</ion-col>
+				  		<ion-col>
+				  			<h2>{{product.status}}</h2>
+				  		</ion-col>
 				  	</ion-row>
 				</div>
 			</ion-grid>
+			<ion-grid>
+				<ion-row>
+					<ion-col>
+					</ion-col>
+					<ion-col>
+					</ion-col>
+					<ion-col>
+						<button ion-button round color="secondary" (click)="OpenProd()">Add new product</button>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
 			<button ion-button block (click)="OpenHistory()">Save changes</button>
-			<button ion-button block (click)="OpenHistory()" color="light">Cancel</button>
+			<button ion-button block (click)="OpenCancel()" color="light">Cancel</button>
 		</ion-list>
 
 		<ion-list *ngSwitchCase="'Profile'">
@@ -150,6 +221,10 @@
 							    	<ion-label color="primary">Postcode</ion-label>
 							    	<ion-input placeholder type="text" [(ngModel)]="worker.postcode"></ion-input>
 								</ion-item>
+								<ion-item>
+							    	<ion-label color="primary">Twitter</ion-label>
+							    	<ion-input placeholder type="text" [(ngModel)]="worker.twitter"></ion-input>
+								</ion-item>
 							</div>
 						</ion-list>
 					</ion-col>
@@ -162,7 +237,7 @@
 				</ion-item>
 			</ion-list>
 			<button ion-button block (click)="OpenHistory()">Save changes</button>
-			<button ion-button block (click)="OpenHistory()" color="light">Cancel</button>
+			<button ion-button block (click)="OpenCancel()" color="light">Cancel</button>
 		</ion-list>
 		<ion-list *ngSwitchCase="'Reports'">
 			<ion-grid>
@@ -193,13 +268,37 @@
 							    	<ion-label color="primary">Commision</ion-label>
 							    	<ion-input disabled="true" [(ngModel)]="dash.commision"></ion-input>
 								</ion-item>
+								<ion-grid>
+						    		<ion-row>
+								  		<ion-col>
+								  			<button ion-button block (click)="OpenAnnouncements()">Announcements</button>
+								  		</ion-col>
+								  		<ion-col>
+								  			<button ion-button block (click)="OpenQuestions()">Customer questions</button>
+								  		</ion-col>
+								  	</ion-row>
+								</ion-grid>
 							</div>
 						</ion-list>
 			  		</ion-col>
 			  	</ion-row>
 			</ion-grid>
 			<button ion-button block (click)="OpenHistory()">Save changes</button>
-			<button ion-button block (click)="OpenHistory()" color="light">Cancel</button>
+			<button ion-button block (click)="OpenCancel()" color="light">Cancel</button>
+		</ion-list>
+		<ion-list *ngSwitchCase="'Prueba'">
+			<div>
+				<ngx-datatable
+			       [sortType]="'multi'"
+			       [headerHeight]="50"
+			       [footerHeight]="50"
+			       [rowHeight]="50"
+			       [rows]="rows"
+			       [columns]="columns"
+			       [columnMode]="'force'"
+			       [limit]="10">
+			     </ngx-datatable>
+			</div>	 
 		</ion-list>
 	</div>
 </ion-content>

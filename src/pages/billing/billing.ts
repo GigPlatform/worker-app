@@ -3,7 +3,6 @@ import { IonicPage, ModalController, NavController, NavParams } from 'ionic-angu
 
 import { DataFinder } from '../../providers/datafinder';
 import { Personas } from '../../providers';
-import { Persona } from '../../models/persona';
 
 @IonicPage()
 @Component({

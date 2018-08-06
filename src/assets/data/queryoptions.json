@@ -31,7 +31,8 @@
         "name": "Store name",
         "city": "Portland",
         "country": "USA",
-        "postcode": "01100"
+        "postcode": "01100",
+        "payment": "PayPal"
         }],
 
       "products":[{
@@ -78,7 +79,8 @@
           "state": "Colorado",
           "postcode": "01119",
           "country": "USA",
-          "phone": "5555 5555"
+          "phone": "5555 5555",
+          "twitter": "@example"
       	}],
 
       "employeeJSON": [{
@@ -226,5 +228,40 @@
         "description": "Description",
         "skills": "Skills required",
         "Money": "Money earned"
+      }],
+
+    "stockTable": [{
+        "product": "Product 1",
+        "units in stock": "54"
+      },
+      {
+        "product": "Product 2",
+        "units in stock": "34"
+      },
+      {
+        "product": "Product 3",
+        "units in stock": "0"
+      }],
+
+    "orders": [{
+        "orderID": "u1g3h",
+        "customer": "Mike Alvarez",
+        "product": "Product 1",
+        "total": "$71",
+        "order date": "06/11/18"
+      },
+      {
+        "orderID": "jha41",
+        "customer": "John Terry",
+        "product": "Product 2",
+        "total": "$5",
+        "order date": "11/24/18"
+      },
+      {
+        "orderID": "g7f8a",
+        "customer": "Mary Anderson",
+        "product": "Product 3",
+        "total": "$42",
+        "order date": "03/30/18"
       }]
 }

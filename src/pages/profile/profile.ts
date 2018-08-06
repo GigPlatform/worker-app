@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController } from 'ionic-angular';
 
-import { Persona } from '../../models/persona';
 import { Personas } from '../../providers';
 import { DataFinder } from '../../providers/datafinder';
 

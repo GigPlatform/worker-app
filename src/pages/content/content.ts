@@ -17,6 +17,7 @@ export class ContentPage {
   completedJSON: any[];
   canceledJSON: any[];
   suggestionsJSON: any[];
+  history: string = "Active";
 
   constructor(public navCtrl: NavController, public personas: Personas, private dataFinder : DataFinder, public modalCtrl: ModalController) {
   }

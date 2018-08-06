@@ -1,5 +1,6 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+
 import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Camera } from '@ionic-native/camera';
@@ -11,6 +12,10 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { Calendar } from '@ionic-native/calendar';
+
+import { DataTablesModule } from 'angular-datatables';
+
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { DataFinder } from '../providers/datafinder';
 
@@ -45,7 +50,9 @@ export function provideSettings(storage: Storage) {
   imports: [
     BrowserModule,
     HttpClientModule,
+    NgxDatatableModule,
     HttpModule,
+    DataTablesModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
